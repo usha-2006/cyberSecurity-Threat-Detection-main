@@ -1,0 +1,17 @@
+risk_score,has_http,description_length,protocol,port,payload_size,request_type,threat_type
+90,1,45,TCP,80,1500,GET,malware
+85,1,50,HTTP,443,2000,POST,phishing
+70,0,30,TCP,22,500,SSH,brute_force
+60,0,25,TCP,3389,1000,RDP,anomaly
+95,1,60,HTTP,80,1200,GET,sql_injection
+88,1,55,HTTP,443,1300,POST,xss
+92,0,40,UDP,53,800,DNS,ddos
+90,1,70,TCP,445,1600,SMB,ransomware
+80,0,35,TCP,443,900,HTTPS,man_in_the_middle
+75,0,50,TCP,80,1100,HTTP,zero_day
+85,0,45,TCP,21,1000,FTP,spyware
+90,1,60,TCP,25,1400,SMTP,trojan
+70,0,30,TCP,23,700,Telnet,worm
+65,0,25,TCP,139,600,NetBIOS,rootkit
+80,0,40,TCP,8080,900,HTTP,keylogger
+75,1,35,TCP,3128,850,HTTP,adware

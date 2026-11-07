@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield - Next-Gen Threat Detection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberShield</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#cyberthreat-main.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li class="nav-item"><a href="#threats" class="nav-link">Threats</a></li>
+                <li class="nav-item"><a href="#analytics" class="nav-link">Analytics</a></li>
+                <li class="nav-item"><a href="#settings" class="nav-link">Settings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <h1>Threat Detection Dashboard</h1>
+            <div class="status-indicator">
+                <span class="status-dot active"></span>
+                <span>System Active</span>
+            </div>
+        </header>
+
+        <!-- Stats Overview -->
+        <section class="stats-grid">
+            <div class="stat-card" data-hover-effect="scale">
+                <div class="stat-icon">
+                    <i class="fas fa-bug"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Threats Detected</h3>
+                    <span class="stat-number" id="threats-count">0</span>
+                    <span class="stat-change positive">+12% today</span>
+                </div>
+            </div>
+
+            <div class="stat-card" data-hover-effect="scale">
+                <div class="stat-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Protected Systems</h3>
+                    <span class="stat-number">42</span>
+                    <span class="stat-change">All secure</span>
+                </div>
+            </div>
+
+            <div class="stat-card" data-hover-effect="scale">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Detection Rate</h3>
+                    <span class="stat-number">98.7%</span>
+                    <span class="stat-change positive">+2.3%</span>
+                </div>
+            </div>
+
+            <div class="stat-card" data-hover-effect="scale">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Response Time</h3>
+                    <span class="stat-number">0.8s</span>
+                    <span class="stat-change negative">-0.2s</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Threat Feed -->
+        <section class="threat-feed">
+            <div class="section-header">
+                <h2>Live Threat Feed</h2>
+                <button class="refresh-btn" onclick="refreshThreats()">
+                    <i class="fas fa-sync"></i>
+                    Refresh
+                </button>
+            </div>
+            <div class="threat-list" id="threat-list">
+                <!-- Threats will be populated here -->
+            </div>
+        </section>
+
+        <!-- Threat Detection Input -->
+        <section class="detection-input">
+            <div class="section-header">
+                <h2>Threat Detection Input</h2>
+                <span class="subtitle">Enter network data for real-time threat analysis</span>
+            </div>
+            
+            <div class="input-grid">
+                <div class="input-group">
+                    <label for="source-ip">Source IP</label>
+                    <input type="text" id="source-ip" placeholder="192.168.1.100" class="input-field">
+                </div>
+                
+                <div class="input-group">
+                    <label for="destination-ip">Destination IP</label>
+                    <input type="text" id="destination-ip" placeholder="10.0.0.50" class="input-field">
+                </div>
+                
+                <div class="input-group">
+                    <label for="protocol">Protocol</label>
+                    <select id="protocol" class="input-field">
+                        <option value="">Select Protocol</option>
+                        <option value="TCP" style="color: black;">TCP</option>
+                        <option value="UDP" style="color: black;">UDP</option>
+                        <option value="ICMP" style="color: black;">ICMP</option>
+                        <option value="HTTP" style="color: black;">HTTP</option>
+                        <option value="HTTPS" style="color: black;">HTTPS</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="port">Port</label>
+                    <input type="number" id="port" placeholder="80" class="input-field">
+                </div>
+                
+                <div class="input-group">
+                    <label for="payload-size">Payload Size (bytes)</label>
+                    <input type="number" id="payload-size" placeholder="1024" class="input-field">
+                </div>
+                
+                <div class="input-group">
+                    <label for="request-type">Request Type</label>
+                    <select id="request-type" class="input-field">
+                        <option value="">Select Type</option>
+                        <option value="GET"  style="color: black;">GET</option>
+                        <option value="POST" style="color: black;">POST</option>
+                        <option value="PUT"  style="color: black;">PUT</option>
+                        <option value="DELETE" style="color: black;">DELETE</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="detect-btn" id="analyze-btn" onclick="analyzeThreat()">
+                <i class="fas fa-search"></i>
+                Analyze Threat
+            </button>
+            
+            <div class="results-container" id="results-container" style="display: none;">
+                <h3>Detection Results</h3>
+                <div class="result-card">
+                    <div class="result-header">
+                        <span class="result-label">Attack Type:</span>
+                        <span class="result-value" id="attack-type">-</span>
+                    </div>
+                    <div class="result-header">
+                        <span class="result-label">Attack Name:</span>
+                        <span class="result-value" id="attack-name">-</span>
+                    </div>
+                    <div class="result-header">
+                        <span class="result-label">Confidence:</span>
+                        <span class="result-value" id="confidence">-</span>
+                    </div>
+                    <div class="result-header">
+                        <span class="result-label">Risk Score:</span>
+                        <span class="result-value" id="risk-score">-</span>
+                    </div>
+                    <div class="result-details">
+                        <span class="result-label">Details:</span>
+                        <p id="attack-details" class="result-text">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution Steps Container -->
+            <div class="solution-container" id="solution-container" style="display: none;">
+                <h3>Recommended Solution Steps</h3>
+                <div class="solution-card">
+                    <ol id="solution-steps" class="solution-steps">
+                        <!-- Solution steps will be populated here -->
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Charts -->
+        <section class="analytics-grid">
+            <div class="chart-card">
+                <h3>Threat Types Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="threatTypeChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>Risk Levels</h3>
+                <div class="chart-container">
+                    <canvas id="riskLevelChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <h3>Network Traffic</h3>
+                <div class="chart-container">
+                    <canvas id="trafficChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Report Button -->
+        <section class="download-solution">
+            <button id="downloadReportBtn" class="download-btn" onclick="downloadReport()" style="margin: 20px 0;">
+                <i class="fas fa-download"></i> Download Threat Report
+            </button>
+            <button id="downloadSolutionBtn" class="download-btn" onclick="downloadSolutionSteps()" style="margin: 20px 0; margin-left: 10px;">
+                <i class="fas fa-file-alt"></i> Download Solution Steps
+            </button>
+        </section>
+
+        <!-- System Health -->
+        <section class="system-health">
+            <h2>System Health</h2>
+            <div class="health-grid">
+                <div class="health-item">
+                    <span class="health-label">CPU Usage</span>
+                    <div class="health-bar">
+                        <div class="health-progress" style="width: 45%"></div>
+                    </div>
+                    <span class="health-value">45%</span>
+                </div>
+                <div class="health-item">
+                    <span class="health-label">Memory</span>
+                    <div class="health-bar">
+                        <div class="health-progress" style="width: 62%"></div>
+                    </div>
+                    <span class="health-value">62%</span>
+                </div>
+                <div class="health-item">
+                    <span class="health-label">Storage</span>
+                    <div class="health-bar">
+                        <div class="health-progress" style="width: 28%"></div>
+                    </div>
+                    <span class="health-value">28%</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 CyberShield Threat Detection System. Built for Hackathon Presentation.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

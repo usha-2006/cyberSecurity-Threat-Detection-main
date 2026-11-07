@@ -1,0 +1,158 @@
+# Development Configuration
+app:
+  name: "Cybersecurity Threat Detection System"
+  version: "1.0.0"
+  environment: "development"
+  debug: true
+
+# Data Ingestion Settings
+ingestion:
+  kafka:
+    bootstrap_servers: "localhost:9092"
+    topics:
+      - "network_traffic"
+      - "security_logs"
+      - "threat_alerts"
+    consumer_group: "threat_detection_consumer"
+  
+  batch_size: 1000
+  max_poll_records: 500
+  poll_timeout_ms: 1000
+
+# Detection Engine Settings
+detection:
+  ml_models:
+    random_forest:
+      n_estimators: 100
+      max_depth: 10
+      min_samples_split: 2
+    lstm:
+      units: 64
+      dropout: 0.2
+      recurrent_dropout: 0.2
+    training_interval_hours: 24
+  
+  risk_thresholds:
+    low: 50
+    medium: 70
+    high: 85
+    critical: 95
+  
+  auto_block:
+    enabled: true
+    threshold: 90
+    duration_minutes: 60
+
+# Storage Configuration
+storage:
+  elasticsearch:
+    hosts: ["localhost:9200"]
+    index_prefix: "threat_detection_"
+    indices:
+      alerts: "alerts"
+      events: "events"
+      threats: "threats"
+  
+  mongodb:
+    uri: "mongodb://localhost:27017"
+    database: "threat_detection"
+    collections:
+      incidents: "incidents"
+      iocs: "iocs"
+      models: "ml_models"
+  
+  redis:
+    host: "localhost"
+    port: 6379
+    db: 0
+    cache_ttl_seconds: 3600
+
+# Alerting Configuration
+alerting:
+  email:
+    enabled: false
+    smtp_host: "smtp.gmail.com"
+    smtp_port: 587
+    from_address: "alerts@threatdetection.com"
+  
+  slack:
+    enabled: false
+    webhook_url: ""
+    channel: "#security-alerts"
+  
+  teams:
+    enabled: false
+    webhook_url: ""
+  
+  escalation:
+    enabled: true
+    jira_integration: false
+    servicenow_integration: false
+
+# Threat Intelligence
+threat_intel:
+  mitre_attack:
+    enabled: true
+    update_interval_hours: 24
+  
+  alienvault_otx:
+    enabled: false
+    api_key: ""
+    update_interval_hours: 6
+  
+  abuseipdb:
+    enabled: true
+    api_key: ""
+    confidence_minimum: 90
+  
+  ioc_update_interval_minutes: 30
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  cors_origins: ["http://localhost:3000"]
+  rate_limit:
+    enabled: true
+    requests_per_minute: 100
+  
+  authentication:
+    enabled: true
+    jwt_secret: "change_this_in_production"
+    token_expire_minutes: 60
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  file_path: "./logs/threat_detection.log"
+  max_file_size_mb: 100
+  backup_count: 10
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Performance Settings
+performance:
+  max_threads: 10
+  batch_processing_size: 1000
+  cache_enabled: true
+  cache_size_mb: 1024
+
+# Security Settings
+security:
+  encryption:
+    enabled: true
+    algorithm: "AES-256-GCM"
+    key_rotation_hours: 24
+  
+  ssl:
+    enabled: false
+    cert_file: ""
+    key_file: ""
+  
+  data_retention:
+    alerts_days: 90
+    events_days: 30
+    incidents_days: 365
+  
+  privacy:
+    anonymize_ips: false
+    mask_sensitive_data: true

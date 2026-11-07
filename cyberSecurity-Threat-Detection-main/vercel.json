@@ -1,0 +1,123 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "dashboard/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "src/api/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "src/detection/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "src/alerting/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "src/ingestion/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "src/utils/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "config/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "requirements.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "README.md",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "Dockerfile",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "setup.sh",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "test_api.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "test_connection.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "test_dashboard_functionality.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "test_system.py",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "TODO.md",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "DEMONSTRATION.md",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "SECURITY_ANALYSIS.md",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
+    },
+    {
+      "src": "/dashboard/(.*)",
+      "dest": "/dashboard/$1"
+    },
+    {
+      "src": "/src/api/(.*)",
+      "dest": "/src/api/$1"
+    },
+    {
+      "src": "/src/detection/(.*)",
+      "dest": "/src/detection/$1"
+    },
+    {
+      "src": "/src/alerting/(.*)",
+      "dest": "/src/alerting/$1"
+    },
+    {
+      "src": "/src/ingestion/(.*)",
+      "dest": "/src/ingestion/$1"
+    },
+    {
+      "src": "/src/utils/(.*)",
+      "dest": "/src/utils/$1"
+    },
+    {
+      "src": "/config/(.*)",
+      "dest": "/config/$1"
+    },
+    {
+      "src": "/(requirements.txt|README.md|Dockerfile|setup.sh|test_api.py|test_connection.py|test_dashboard_functionality.py|test_system.py|TODO.md|DEMONSTRATION.md|SECURITY_ANALYSIS.md)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dashboard/$1"
+    }
+  ]
+}

@@ -1,0 +1,533 @@
+[
+  {
+    "attack_name": "Trojanshield Malware",
+    "threat_type": "malware",
+    "risk_score": 90,
+    "has_http": 1,
+    "description_length": 45,
+    "protocol": "TCP",
+    "port": 80,
+    "payload_size": 1500,
+    "request_type": "GET",
+    "description": "Advanced persistent threat (APT) malware designed to steal sensitive data and establish backdoors",
+    "detection_patterns": {
+      "ports": [80, 443, 8080],
+      "protocols": ["TCP", "HTTP"],
+      "payload_sizes": [1000, 2000],
+      "request_types": ["GET", "POST"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Isolate the infected system from the network immediately",
+      "2. Run full system antivirus scan with updated definitions",
+      "3. Remove or quarantine detected malicious files",
+      "4. Update all software and operating system patches",
+      "5. Change all passwords and monitor for suspicious activity",
+      "6. Restore from clean backup if necessary"
+    ]
+  },
+  {
+    "attack_name": "Phishing Storm Campaign",
+    "threat_type": "phishing",
+    "risk_score": 85,
+    "has_http": 1,
+    "description_length": 50,
+    "protocol": "HTTP",
+    "port": 443,
+    "payload_size": 2000,
+    "request_type": "POST",
+    "description": "Sophisticated phishing campaign targeting credentials and personal information",
+    "detection_patterns": {
+      "ports": [443, 80, 25],
+      "protocols": ["HTTP", "HTTPS", "SMTP"],
+      "payload_sizes": [1500, 3000],
+      "request_types": ["POST", "GET", "MAIL"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Do not click on suspicious links or download attachments",
+      "2. Verify sender email addresses carefully",
+      "3. Enable multi-factor authentication (MFA)",
+      "4. Educate users about phishing recognition",
+      "5. Use email filtering and anti-phishing tools",
+      "6. Report phishing attempts to IT security team"
+    ]
+  },
+  {
+    "attack_name": "BruteForce Hammer Attack",
+    "threat_type": "brute_force",
+    "risk_score": 70,
+    "has_http": 0,
+    "description_length": 30,
+    "protocol": "TCP",
+    "port": 22,
+    "payload_size": 500,
+    "request_type": "SSH",
+    "description": "Automated password cracking attempt targeting SSH services",
+    "detection_patterns": {
+      "ports": [22, 23, 21],
+      "protocols": ["SSH", "Telnet", "FTP"],
+      "payload_sizes": [400, 800],
+      "request_types": ["SSH", "Telnet", "FTP"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Implement account lockout policies after failed attempts",
+      "2. Use strong, complex passwords",
+      "3. Enable multi-factor authentication (MFA)",
+      "4. Implement rate limiting on login attempts",
+      "5. Use CAPTCHA for login forms",
+      "6. Monitor authentication logs for suspicious patterns"
+    ]
+  },
+  {
+    "attack_name": "Network Anomaly Detected",
+    "threat_type": "anomaly",
+    "risk_score": 60,
+    "has_http": 0,
+    "description_length": 25,
+    "protocol": "TCP",
+    "port": 3389,
+    "payload_size": 1000,
+    "request_type": "RDP",
+    "description": "Unusual network traffic patterns detected indicating potential security breach",
+    "detection_patterns": {
+      "ports": [3389, 22, 80, 443],
+      "protocols": ["RDP", "SSH", "HTTP", "HTTPS"],
+      "payload_sizes": [800, 1500],
+      "request_types": ["RDP", "SSH", "GET", "POST"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Investigate the source of anomalous behavior",
+      "2. Review system and network logs",
+      "3. Check for configuration changes",
+      "4. Update monitoring and alerting rules",
+      "5. Implement additional logging if needed",
+      "6. Document findings for future reference"
+    ]
+  },
+  {
+    "attack_name": "SQL Injection Blitz",
+    "threat_type": "sql_injection",
+    "risk_score": 95,
+    "has_http": 1,
+    "description_length": 60,
+    "protocol": "HTTP",
+    "port": 80,
+    "payload_size": 1200,
+    "request_type": "GET",
+    "description": "Malicious SQL queries attempting to manipulate database and extract sensitive data",
+    "detection_patterns": {
+      "ports": [80, 443, 3306, 5432],
+      "protocols": ["HTTP", "HTTPS", "MySQL", "PostgreSQL"],
+      "payload_sizes": [1000, 2500],
+      "request_types": ["GET", "POST"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Use parameterized queries and prepared statements",
+      "2. Implement input validation and sanitization",
+      "3. Use stored procedures instead of dynamic SQL",
+      "4. Apply least privilege principle to database accounts",
+      "5. Use web application firewalls (WAF)",
+      "6. Regularly update and patch database software"
+    ]
+  },
+  {
+    "attack_name": "XSS Crossfire Attack",
+    "threat_type": "xss",
+    "risk_score": 88,
+    "has_http": 1,
+    "description_length": 55,
+    "protocol": "HTTP",
+    "port": 443,
+    "payload_size": 1300,
+    "request_type": "POST",
+    "description": "Cross-site scripting attack attempting to execute malicious JavaScript code",
+    "detection_patterns": {
+      "ports": [443, 80, 8080],
+      "protocols": ["HTTPS", "HTTP", "TCP"],
+      "payload_sizes": [1000, 2000],
+      "request_types": ["POST", "GET"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Implement proper input validation and output encoding",
+      "2. Use Content Security Policy (CSP) headers",
+      "3. Sanitize user input on both client and server side",
+      "4. Use secure coding frameworks and libraries",
+      "5. Implement XSS protection in web application firewalls",
+      "6. Regularly scan for XSS vulnerabilities"
+    ]
+  },
+  {
+    "attack_name": "DDoS Tsunami Attack",
+    "threat_type": "ddos",
+    "risk_score": 92,
+    "has_http": 0,
+    "description_length": 40,
+    "protocol": "UDP",
+    "port": 53,
+    "payload_size": 800,
+    "request_type": "DNS",
+    "description": "Distributed denial of service attack overwhelming network resources",
+    "solutions": [
+      "1. Implement rate limiting and traffic filtering",
+      "2. Use DDoS protection services (Cloudflare, Akamai)",
+      "3. Configure firewalls and intrusion prevention systems",
+      "4. Implement network segmentation",
+      "5. Use load balancers with DDoS mitigation",
+      "6. Monitor network traffic patterns continuously"
+    ]
+  },
+  {
+    "attack_name": "WannaCry Ransomware Variant",
+    "threat_type": "ransomware",
+    "risk_score": 90,
+    "has_http": 1,
+    "description_length": 70,
+    "protocol": "TCP",
+    "port": 445,
+    "payload_size": 1600,
+    "request_type": "SMB",
+    "description": "Advanced ransomware encrypting files and demanding cryptocurrency payment",
+    "solutions": [
+      "1. Isolate infected systems immediately",
+      "2. Do not pay the ransom - it funds criminal activity",
+      "3. Restore from clean, offline backups",
+      "4. Update all systems and apply security patches",
+      "5. Use endpoint detection and response (EDR) tools",
+      "6. Implement regular backup and recovery testing"
+    ]
+  },
+  {
+    "attack_name": "Man-in-the-Middle Interceptor",
+    "threat_type": "man_in_the_middle",
+    "risk_score": 80,
+    "has_http": 0,
+    "description_length": 35,
+    "protocol": "TCP",
+    "port": 443,
+    "payload_size": 900,
+    "request_type": "HTTPS",
+    "description": "Attack intercepting and potentially modifying communications between parties",
+    "solutions": [
+      "1. Use HTTPS/TLS encryption for all communications",
+      "2. Implement certificate pinning",
+      "3. Avoid public Wi-Fi for sensitive transactions",
+      "4. Use VPN for remote access",
+      "5. Verify SSL certificates before transmitting data",
+      "6. Implement mutual authentication where possible"
+    ]
+  },
+  {
+    "attack_name": "Zero-Day Exploit Discovery",
+    "threat_type": "zero_day",
+    "risk_score": 75,
+    "has_http": 0,
+    "description_length": 50,
+    "protocol": "TCP",
+    "port": 80,
+    "payload_size": 1100,
+    "request_type": "HTTP",
+    "description": "Previously unknown vulnerability being exploited before patch availability",
+    "solutions": [
+      "1. Keep all systems and software updated",
+      "2. Use intrusion detection systems (IDS)",
+      "3. Implement network segmentation",
+      "4. Use behavior-based detection tools",
+      "5. Monitor for anomalous system behavior",
+      "6. Have incident response plan ready"
+    ]
+  },
+  {
+    "attack_name": "Spyware Surveillance Tool",
+    "threat_type": "spyware",
+    "risk_score": 85,
+    "has_http": 0,
+    "description_length": 45,
+    "protocol": "TCP",
+    "port": 21,
+    "payload_size": 1000,
+    "request_type": "FTP",
+    "description": "Covert software designed to collect user information without consent",
+    "solutions": [
+      "1. Run comprehensive anti-malware scans",
+      "2. Remove suspicious browser extensions",
+      "3. Clear browser cache and cookies",
+      "4. Use privacy-focused browsers and extensions",
+      "5. Enable firewall and real-time protection",
+      "6. Monitor system performance and network activity"
+    ]
+  },
+  {
+    "attack_name": "Trojan Horse Backdoor",
+    "threat_type": "trojan",
+    "risk_score": 90,
+    "has_http": 1,
+    "description_length": 60,
+    "protocol": "TCP",
+    "port": 25,
+    "payload_size": 1400,
+    "request_type": "SMTP",
+    "description": "Malicious software disguised as legitimate program providing unauthorized access",
+    "solutions": [
+      "1. Run full system antivirus scan",
+      "2. Remove or quarantine detected files",
+      "3. Change all passwords immediately",
+      "4. Update operating system and applications",
+      "5. Use sandboxing for suspicious files",
+      "6. Monitor system for unauthorized access"
+    ]
+  },
+  {
+    "attack_name": "Worm Network Spreader",
+    "threat_type": "worm",
+    "risk_score": 70,
+    "has_http": 0,
+    "description_length": 30,
+    "protocol": "TCP",
+    "port": 23,
+    "payload_size": 700,
+    "request_type": "Telnet",
+    "description": "Self-replicating malware spreading across network infrastructure",
+    "solutions": [
+      "1. Isolate infected systems from network",
+      "2. Run antivirus scans on all connected systems",
+      "3. Close vulnerable ports and services",
+      "4. Apply security patches immediately",
+      "5. Use network segmentation to contain spread",
+      "6. Monitor network traffic for worm signatures"
+    ]
+  },
+  {
+    "attack_name": "Rootkit System Infiltrator",
+    "threat_type": "rootkit",
+    "risk_score": 65,
+    "has_http": 0,
+    "description_length": 25,
+    "protocol": "TCP",
+    "port": 139,
+    "payload_size": 600,
+    "request_type": "NetBIOS",
+    "description": "Deep system-level malware hiding from detection and maintaining persistence",
+    "solutions": [
+      "1. Boot from clean media for scanning",
+      "2. Use specialized rootkit detection tools",
+      "3. Reinstall operating system if necessary",
+      "4. Update all system components",
+      "5. Implement integrity monitoring",
+      "6. Use secure boot and TPM if available"
+    ]
+  },
+  {
+    "attack_name": "Keylogger Stealth Monitor",
+    "threat_type": "keylogger",
+    "risk_score": 80,
+    "has_http": 0,
+    "description_length": 40,
+    "protocol": "TCP",
+    "port": 8080,
+    "payload_size": 900,
+    "request_type": "HTTP",
+    "description": "Malicious software recording keystrokes to capture sensitive information",
+    "solutions": [
+      "1. Run anti-malware scans with keylogger detection",
+      "2. Change all passwords from clean system",
+      "3. Use virtual keyboard for sensitive input",
+      "4. Enable two-factor authentication",
+      "5. Monitor system for unusual keyboard activity",
+      "6. Use endpoint protection with behavior monitoring"
+    ]
+  },
+  {
+    "attack_name": "Adware Revenue Generator",
+    "threat_type": "adware",
+    "risk_score": 75,
+    "has_http": 1,
+    "description_length": 35,
+    "protocol": "TCP",
+    "port": 3128,
+    "payload_size": 850,
+    "request_type": "HTTP",
+    "description": "Unwanted software displaying advertisements and potentially collecting user data",
+    "detection_patterns": {
+      "ports": [3128, 8080, 80],
+      "protocols": ["TCP", "HTTP"],
+      "payload_sizes": [800, 1000],
+      "request_types": ["HTTP", "GET"],
+      "source_ips": ["192.168", "10.0"]
+    },
+    "solutions": [
+      "1. Run anti-malware scans",
+      "2. Remove suspicious browser extensions",
+      "3. Reset browser settings to default",
+      "4. Use ad-blocking extensions",
+      "5. Avoid downloading from untrusted sources",
+      "6. Keep browser and plugins updated"
+    ]
+  },
+  {
+    "attack_name": "Cryptocurrency Mining Botnet",
+    "threat_type": "crypto_mining",
+    "risk_score": 80,
+    "has_http": 1,
+    "description_length": 55,
+    "protocol": "TCP",
+    "port": 4444,
+    "payload_size": 2000,
+    "request_type": "POST",
+    "description": "Unauthorized cryptocurrency mining using victim's computing resources",
+    "detection_patterns": {
+      "ports": [4444, 3333, 8080],
+      "protocols": ["TCP", "HTTP"],
+      "payload_sizes": [1500, 3000],
+      "request_types": ["POST", "GET"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Disconnect from network immediately",
+      "2. Run comprehensive malware scan",
+      "3. Check CPU usage and terminate suspicious processes",
+      "4. Update system and security software",
+      "5. Monitor network traffic for mining pool connections",
+      "6. Implement endpoint detection and response (EDR)"
+    ]
+  },
+  {
+    "attack_name": "IoT Device Exploitation",
+    "threat_type": "iot_attack",
+    "risk_score": 70,
+    "has_http": 0,
+    "description_length": 40,
+    "protocol": "UDP",
+    "port": 1900,
+    "payload_size": 600,
+    "request_type": "SSDP",
+    "description": "Attack targeting Internet of Things devices for botnet recruitment",
+    "detection_patterns": {
+      "ports": [1900, 5353, 23, 21],
+      "protocols": ["UDP", "TCP"],
+      "payload_sizes": [500, 800],
+      "request_types": ["SSDP", "MDNS", "Telnet", "FTP"],
+      "source_ips": ["192.168", "10.0"]
+    },
+    "solutions": [
+      "1. Disconnect compromised IoT devices",
+      "2. Update device firmware to latest version",
+      "3. Change default passwords on all IoT devices",
+      "4. Implement network segmentation for IoT devices",
+      "5. Use strong authentication and encryption",
+      "6. Monitor IoT device network traffic"
+    ]
+  },
+  {
+    "attack_name": "Supply Chain Attack",
+    "threat_type": "supply_chain",
+    "risk_score": 95,
+    "has_http": 1,
+    "description_length": 60,
+    "protocol": "HTTPS",
+    "port": 443,
+    "payload_size": 2500,
+    "request_type": "POST",
+    "description": "Malicious code injected into legitimate software supply chain",
+    "detection_patterns": {
+      "ports": [443, 80, 8080],
+      "protocols": ["HTTPS", "HTTP", "TCP"],
+      "payload_sizes": [2000, 4000],
+      "request_types": ["POST", "GET"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Isolate affected systems immediately",
+      "2. Stop using compromised software versions",
+      "3. Verify software integrity with checksums",
+      "4. Implement code signing verification",
+      "5. Monitor for unusual network connections",
+      "6. Contact software vendor for patched version"
+    ]
+  },
+  {
+    "attack_name": "API Abuse Attack",
+    "threat_type": "api_abuse",
+    "risk_score": 75,
+    "has_http": 1,
+    "description_length": 45,
+    "protocol": "HTTPS",
+    "port": 443,
+    "payload_size": 1200,
+    "request_type": "POST",
+    "description": "Malicious exploitation of API endpoints for data extraction",
+    "detection_patterns": {
+      "ports": [443, 80, 8080, 3000],
+      "protocols": ["HTTPS", "HTTP", "TCP"],
+      "payload_sizes": [1000, 2000],
+      "request_types": ["POST", "GET", "PUT", "DELETE"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Implement API rate limiting",
+      "2. Add authentication and authorization",
+      "3. Validate all API input parameters",
+      "4. Monitor API usage patterns",
+      "5. Implement API gateway security",
+      "6. Use API versioning and deprecation"
+    ]
+  },
+  {
+    "attack_name": "Social Engineering Campaign",
+    "threat_type": "social_engineering",
+    "risk_score": 85,
+    "has_http": 1,
+    "description_length": 50,
+    "protocol": "SMTP",
+    "port": 25,
+    "payload_size": 1800,
+    "request_type": "MAIL",
+    "description": "Psychological manipulation to trick users into revealing sensitive information",
+    "detection_patterns": {
+      "ports": [25, 587, 465],
+      "protocols": ["SMTP", "TCP"],
+      "payload_sizes": [1500, 2500],
+      "request_types": ["MAIL", "RCPT", "DATA"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Educate users about social engineering tactics",
+      "2. Implement email filtering and validation",
+      "3. Use multi-factor authentication",
+      "4. Verify requests through alternative channels",
+      "5. Monitor for suspicious communication patterns",
+      "6. Establish clear security policies and procedures"
+    ]
+  },
+  {
+    "attack_name": "Cloud Infrastructure Attack",
+    "threat_type": "cloud_attack",
+    "risk_score": 88,
+    "has_http": 1,
+    "description_length": 55,
+    "protocol": "HTTPS",
+    "port": 443,
+    "payload_size": 2200,
+    "request_type": "POST",
+    "description": "Exploitation of cloud services and infrastructure vulnerabilities",
+    "detection_patterns": {
+      "ports": [443, 80, 22, 3389],
+      "protocols": ["HTTPS", "HTTP", "SSH", "RDP"],
+      "payload_sizes": [1500, 3000],
+      "request_types": ["POST", "GET", "SSH", "RDP"],
+      "source_ips": ["192.168", "10.0", "172.16"]
+    },
+    "solutions": [
+      "1. Review and update cloud security configurations",
+      "2. Implement least privilege access controls",
+      "3. Enable cloud security monitoring and logging",
+      "4. Use multi-factor authentication for cloud accounts",
+      "5. Regularly audit cloud permissions and access",
+      "6. Implement network segmentation in cloud environment"
+    ]
+  }
+]
